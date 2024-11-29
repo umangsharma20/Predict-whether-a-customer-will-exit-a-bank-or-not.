@@ -1,60 +1,81 @@
-This project implements an Artificial Neural Network (ANN) using TensorFlow with GPU support to predict whether a customer will exit a bank or not. The project includes steps for loading the dataset, performing a train-test split, feature scaling, and building the neural network model using dropout layers to prevent overfitting. Early stopping is employed to halt training when the model stops improving.
+# Bank Customer Exit Prediction Using Artificial Neural Networks (ANN)
 
-Table of Contents
-Installation
-Project Overview
-Data Preprocessing
-Train-Test Split
-Feature Scaling
-Model Architecture
-Dropout Layer
-Optimizer
-Early Stopping
-Evaluation
-Confusion Matrix
-Accuracy
-Results
-License
-Installation
+## Table of Contents
+- [Installation](#installation)
+- [Project Overview](#project-overview)
+- [Data Preprocessing](#data-preprocessing)
+  - [Train-Test Split](#train-test-split)
+  - [Feature Scaling](#feature-scaling)
+- [Model Architecture](#model-architecture)
+  - [Dropout Layer](#dropout-layer)
+  - [Optimizer](#optimizer)
+  - [Early Stopping](#early-stopping)
+- [Evaluation](#evaluation)
+  - [Confusion Matrix](#confusion-matrix)
+  - [Accuracy](#accuracy)
+- [Results](#results)
+- [License](#license)
+
+## Installation
+
 Ensure the following are installed before starting:
 
-Python 3.7+
-TensorFlow (with GPU support)
-Pandas
-Scikit-learn
-Matplotlib
-Project Overview
-The aim is to build a model that predicts whether a bank customer will leave, based on various features like credit score, geography, gender, balance, and others. The neural network is built using TensorFlow with GPU acceleration for faster training. Dropout layers are added to reduce overfitting, the Adam optimizer is used to minimize the loss, and early stopping is applied to halt training when validation loss does not improve.
+- Python 3.7+
+- TensorFlow (with GPU support)
+- Pandas
+- Scikit-learn
+- Matplotlib
 
-Data Preprocessing
-Train-Test Split
-The dataset is split into training and testing sets. The training set is used to train the model, and the test set is reserved for evaluation.
+## Project Overview
 
-Feature Scaling
-A StandardScaler is applied to transform the features to ensure they are on a similar scale, helping the neural network converge faster and perform better.
+This project implements an **Artificial Neural Network (ANN)** using **TensorFlow with GPU support** to predict whether a customer will exit a bank. The model uses various features such as **credit score, geography, gender, balance**, and others to make predictions. The neural network is designed to prevent overfitting by using **dropout layers** and employs **early stopping** to halt training when the model stops improving.
 
-Model Architecture
-The model is built with fully connected dense layers. The ReLU activation function is used for hidden layers, while the output layer uses a sigmoid function.
+## Data Preprocessing
 
-Dropout Layer
-Dropout layers are added after each hidden layer to prevent overfitting by randomly dropping neurons during training, encouraging the network to generalize better.
+### Train-Test Split
+The dataset is split into a **training set** (used to train the model) and a **test set** (reserved for evaluation). This split ensures that the model is evaluated on unseen data to measure its generalization performance.
 
-Optimizer
-The Adam optimizer is used in this model, offering an adaptive learning rate that helps the network learn faster and more efficiently.
+### Feature Scaling
+The features are standardized using the **StandardScaler** to ensure they are on a similar scale. Feature scaling is essential for neural networks as it helps the model converge faster and perform better.
 
-Early Stopping
-Early stopping is implemented to halt the training process once the validation loss ceases to improve, ensuring the model does not overfit to the training data.
+## Model Architecture
 
-Evaluation
-Confusion Matrix
-A confusion matrix is generated to evaluate model performance. It provides insights into true positives, true negatives, false positives, and false negatives.
+The neural network consists of fully connected **dense layers**. The architecture is as follows:
 
-Accuracy
-The accuracy of the model is calculated to assess how well it generalizes to unseen test data.
+- **Hidden Layers:** Use **ReLU** activation function to introduce non-linearity.
+- **Output Layer:** The output layer uses a **sigmoid function** to predict binary outcomes (exit or not).
 
-Results
-Model Accuracy: 85% (example; update based on your actual results)
-Confusion Matrix:
-Predicted No	Predicted Yes
-Actual No	1530	50
-Actual Yes	120	300
+### Dropout Layer
+To prevent overfitting, **dropout layers** are added after each hidden layer. This helps the network generalize better by randomly dropping neurons during training, reducing reliance on specific nodes.
+
+### Optimizer
+The **Adam optimizer** is used in this model, offering an adaptive learning rate. This helps the network learn more efficiently and converge faster.
+
+### Early Stopping
+**Early stopping** is implemented to halt training when the validation loss ceases to improve. This prevents overfitting by ensuring the model doesn't continue training once it has reached its optimal performance.
+
+## Evaluation
+
+### Confusion Matrix
+A **confusion matrix** is generated to evaluate the performance of the model. It provides insights into:
+- **True Positives (TP)**
+- **True Negatives (TN)**
+- **False Positives (FP)**
+- **False Negatives (FN)**
+
+### Accuracy
+The **accuracy** of the model is calculated to assess its performance on the test data. The accuracy indicates how well the model generalizes to unseen instances.
+
+## Results
+
+- **Model Accuracy:** 85% (Update this based on your actual results)
+- **Confusion Matrix:**
+
+|               | Predicted No | Predicted Yes |
+|---------------|--------------|---------------|
+| **Actual No** | 1530         | 50            |
+| **Actual Yes**| 120          | 300           |
+
+## License
+
+This project is licensed for educational use and is part of a learning assignment.
